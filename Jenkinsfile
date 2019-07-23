@@ -13,8 +13,8 @@ pipeline {
             steps {
                 sh '''
                       pwd
-                    ./jenkins/pipeline/jenkins/build/mvn.sh mvn  -X -B -DskipTests clean package
-                    ./jenkins/pipeline/jenkins/build/build.sh
+                    ./jenkins/build/mvn.sh mvn  -X -B -DskipTests clean package
+                    ./jenkins/build/build.sh
 
                 '''
             }
@@ -28,7 +28,7 @@ pipeline {
 
         stage('Test') {
             steps {
-                sh './jenkins/pipeline/jenkins/test/mvn.sh mvn test'
+                sh './jenkins/test/mvn.sh mvn test'
             }
 
             post {
@@ -40,13 +40,13 @@ pipeline {
 
         stage('Push') {
             steps {
-                sh './jenkins/pipeline/jenkins/push/push.sh'
+                sh './jenkins/push/push.sh'
             }
         }
 
         stage('Deploy') {
             steps {
-                sh './jenkins/pipeline/jenkins/deploy/deploy.sh'
+                sh './jenkins/deploy/deploy.sh'
             }
         }
     }
