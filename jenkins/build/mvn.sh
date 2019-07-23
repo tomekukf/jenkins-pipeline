@@ -4,6 +4,6 @@ echo "********************"
 
 WORKSPACE=/var/jenkins_home/workspace/jenkins-pipeline/jenkins/pipeline
 
-ls /var/jenkins_home/workspace/jenkins-pipeline/jenkins/pipeline
-ls /var/jenkins_home/workspace/jenkins-pipeline/jenkins/pipeline/java-app
+pwd
+ls
 docker run  -v /var/jenkins_home/workspace/jenkins-pipeline/java-app:/tmp/app -w /tmp/app maven:3-alpine "$@" 
