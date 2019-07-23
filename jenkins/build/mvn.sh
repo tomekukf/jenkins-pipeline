@@ -2,8 +2,7 @@ echo "********************"
 echo "***** BUILDING *****"
 echo "********************"
 
-WORKSPACE=/var/jenkins_home/workspace/jenkins-pipeline/jenkins/pipeline
+WORKSPACE=/home/jenkins/jenkins/jenkins-data/workspace/jenkins-pipeline
 
-pwd
-ls
-docker run  -v /var/jenkins_home/workspace/jenkins-pipeline/java-app:/tmp/app -w /tmp/app maven:3-alpine "$@" 
+
+docker run  -v $WORKSPACE/java-app:/tmp/app -w /tmp/app maven:3-alpine "$@" 
